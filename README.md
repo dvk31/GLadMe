@@ -1,24 +1,35 @@
-# open-dj6
+# GLadMe Sandbox (open-dj6)
 
-`open-dj6` is a small open-source Django template that keeps the useful shape of the larger
-MinuteWork stack without bringing along the platform complexity.
+![GLadMe Autoresearch Framework Architecture](./gladme-architecture.png)
+
+This repository is the pre-configured sandbox for the **Gautam Lab Agentic Development Method (GLadMe)**. 
+
+It uses a lightweight Django + React template (`open-dj6`) as a structural substrate, and relies on **Claude Code** and the **Autoresearch Skill** as the agentic engine to drive continuous learning, coding, and verification loops.
+
+Instead of replicating complex features like semantic search, file parsing, and git operations, this sandbox lets you focus on defining the `Goal`, structuring the `Logic`, and writing your mechanical `Metric`, while a specialized Coder/Reviewer agent handles the execution.
 
 It includes:
+- A pre-configured Django + React + Vite environment with tests (`pytest`) and types (`tsc`) acting as mechanical verifiers.
+- The `runstack` CLI shortcut for easy backend execution.
+- (Recommended) The Autoresearch Claude Code skill for enforcing the GLadMe iterative loop.
 
-- Django with a reusable `BaseModel` split into focused abstract classes
-- A simple `SoftDeleteMixin`
-- Lightweight service contracts built with an ABC, a Protocol, and a registry decorator
-- React + Inertia + Vite wired directly into Django
-- A minimal `OpenRouterGateway` plus an example `manage.py ai_chat` command
+## The GLadMe Agentic Loop
 
-It intentionally leaves out:
+This sandbox is designed to be driven by AI. To start iterating:
 
-- Multi-tenant middleware and scoped managers
-- ACL and URN systems
-- Billing-aware AI usage logging
-- Celery, Channels, Temporal, and background orchestration
-- Runtime contract enforcement decorators like `must_check` and `must_emit`
-- Large shell bootstrapping, analytics, and app registries
+1. Ensure Claude Code is installed globally (`npm i -g @anthropic-ai/claude-code`).
+2. Install the Autoresearch skill globally (`cp -r autoresearch/skills/autoresearch ~/.claude/skills/autoresearch` or similar).
+3. Start the continuous learning loop by running `claude` and invoking the skill:
+
+```text
+/autoresearch
+Goal: Increase python test coverage while adhering to architectural rules.
+Scope: web/**/*.py, tests/**/*.py
+Metric: Pass rate (higher is better)
+Verify: pytest
+```
+
+Claude will autonomously review code, plan an atomic change, write the code, run `pytest`, keep passing improvements, and auto-revert failed code—learning with each iteration.
 
 ## Quick Start
 
