@@ -1,10 +1,10 @@
-# GLadMe Sandbox (open-dj6)
+# GLadMe Sandbox
 
 ![GLadMe Autoresearch Framework Architecture](./gladme-architecture.png)
 
 This repository is the pre-configured sandbox for the **Gautam Lab Agentic Development Method (GLadMe)**. 
 
-It uses a lightweight Django + React template (`open-dj6`) as a structural substrate, and relies on **Claude Code** and the **Autoresearch Skill** as the agentic engine to drive continuous learning, coding, and verification loops.
+It uses a lightweight Django + React template as a structural substrate, and relies on **Claude Code** and the **Autoresearch Skill** as the agentic engine to drive continuous learning, coding, and verification loops.
 
 Instead of replicating complex features like semantic search, file parsing, and git operations, this sandbox lets you focus on defining the `Goal`, structuring the `Logic`, and writing your mechanical `Metric`, while a specialized Coder/Reviewer agent handles the execution.
 
@@ -72,7 +72,7 @@ npm run dev
 ## Template Shape
 
 ```text
-open-dj6/
+GLadMe/
   config/                  Django settings and URL config
   common/models/           Base models and mixins
   common/services/         Base gateway, Protocol contract, registry
