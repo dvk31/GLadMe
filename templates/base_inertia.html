@@ -1,0 +1,17 @@
+{% load django_vite %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title inertia>{{ meta_title|default:"Open DJ6" }}</title>
+    {% vite_hmr_client %}
+    {% vite_react_refresh %}
+    {% vite_asset 'main.tsx' %}
+  </head>
+  <body>
+    {% csrf_token %}
+    {% block inertia %}{% endblock %}
+  </body>
+</html>

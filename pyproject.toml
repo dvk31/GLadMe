@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+package-mode = false
+
+
+[project]
+name = "open-dj6"
+version = "0.1.0"
+description = "Minimal Django + React + Inertia template with a lightweight OpenRouter gateway."
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+  "django>=5.2,<5.3",
+  "django-environ>=0.11,<1.0",
+  "dj-database-url>=3.0,<4.0",
+  "inertia-django>=1.2,<2.0",
+  "django-vite>=3.1,<4.0",
+  "httpx>=0.28,<0.29",
+  "psycopg[binary]>=3.2,<4.0",
+  "whitenoise>=6.9,<7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9.0",
+  "pytest-django>=4.11,<5.0",
+  "ruff>=0.11,<0.12",
+]
+
+[tool.setuptools.packages.find]
+include = ["ai*", "common*", "config*", "web*"]
+exclude = ["frontend*", "static*", "templates*", "tests*"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["build"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
